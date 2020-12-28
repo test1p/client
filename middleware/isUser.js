@@ -1,7 +1,5 @@
 export default function ({ store, redirect }) {
-  const user = store.getters['auth/loggedUser']
+  if (store.getters['auth/loggedUser']) return
   
-  if (user) return
-  
-  redirect('/')
+  redirect('/signup')
 }

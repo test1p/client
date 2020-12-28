@@ -31,6 +31,23 @@ export default {
             { label: '登録', path: '/admin/user/create' },
           ]
         },
+        {
+          headers: [
+            { text: '振込' },
+          ],
+          btns: [
+            { label: '一覧', path: '/admin/transfer' },
+            { label: '登録', path: '/admin/transfer/create' },
+          ]
+        },
+        {
+          headers: [
+            { text: 'チケット' },
+          ],
+          btns: [
+            { label: '追加', path: '/admin/ticket/create' },
+          ]
+        },
       ]
     }
   }

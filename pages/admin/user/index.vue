@@ -35,6 +35,7 @@ export default {
     return {
       headers: [
         { text: '氏名', value: 'name', align: 'left' },
+        { text: 'チケット', value: 'tickets_count', align: 'left' },
         { text: '', value: 'actions', align: 'right', sortable: false },
       ],
       btns: {

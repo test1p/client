@@ -19,20 +19,13 @@ export default {
   data () {
     return {
       btns: {
-        home: {
-          label: 'ホーム',
-          path: '/',
-          text: true
-        },
         signup: {
           label: '新規登録',
-          path: '/signup',
-          text: true
+          path: '/signup'
         },
         login: {
           label: 'ログイン',
-          path: '/login',
-          text: true
+          path: '/login'
         }
       }
     }

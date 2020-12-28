@@ -15,6 +15,73 @@
   </btn-link>
   </template>
   
+  <template v-else-if="type === 'entry'">
+  <btn-entry
+    :color="btn.color"
+    :elevation="btn.elevation"
+    :disabled="btn.disabled"
+    :block="btn.block"
+    :outlined="btn.outlined"
+    :text="btn.text"
+    :small="btn.small"
+    :path="btn.path"
+    :redirect="btn.redirect"
+  >
+    <slot />
+  </btn-entry>
+  </template>
+  
+  <template v-else-if="type === 'delete'">
+  <btn-delete
+    :color="btn.color"
+    :elevation="btn.elevation"
+    :disabled="btn.disabled"
+    :block="btn.block"
+    :outlined="btn.outlined"
+    :text="btn.text"
+    :small="btn.small"
+    :confirm="btn.confirm"
+    :path="btn.path"
+    :redirect="btn.redirect"
+  >
+    <slot />
+  </btn-delete>
+  </template>
+  
+  <template v-else-if="type === 'post'">
+  <btn-post
+    :color="btn.color"
+    :elevation="btn.elevation"
+    :disabled="btn.disabled"
+    :block="btn.block"
+    :outlined="btn.outlined"
+    :text="btn.text"
+    :small="btn.small"
+    :confirm="btn.confirm"
+    :path="btn.path"
+    :redirect="btn.redirect"
+  >
+    <slot />
+  </btn-post>
+  </template>
+  
+  <template v-else-if="type === 'download'">
+  <btn-download
+    :color="btn.color"
+    :elevation="btn.elevation"
+    :disabled="btn.disabled"
+    :block="btn.block"
+    :outlined="btn.outlined"
+    :text="btn.text"
+    :small="btn.small"
+    :confirm="btn.confirm"
+    :path="btn.path"
+    :redirect="btn.redirect"
+  >
+    <slot />
+  </btn-download>
+  </template>
+  
   <template v-else>
   <btn-base
     :color="btn.color"

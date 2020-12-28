@@ -15,12 +15,8 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ commit }, { app }) {
-    const user = await app.$axios.$get('/api/user').catch(e => {})
-  
-    if (!user) return
-    
-    commit('auth/setUser', user)
+  async nuxtServerInit({ commit }, { store }) {
+    await store.dispatch('auth/user')
   },
   
   commitVal ({ commit, getters }, payload) {

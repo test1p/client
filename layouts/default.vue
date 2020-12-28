@@ -1,7 +1,7 @@
 <template>
 <v-app>
   
-  <layout-header :btns="btns" />
+  <layout-header :menus="menus" :btns="btns" />
   
   <v-main>
     <nuxt />
@@ -22,35 +22,81 @@ export default {
   data () {
     return {
       btns: {
-        home: {
-          label: 'ホーム',
-          path: '/',
-          text: true
-        },
+        entry: {
+          label: 'エントリー',
+          path: '/user/entry'
+        }
+      },
+      menus: {
         user: {
           label: '設定',
-          path: '/user',
-          text: true
+          path: '/user'
         },
         logout: {
           label: 'ログアウト',
-          type: 'logout',
-          text: true
+          type: 'logout'
         }
       }
+    }
+  },
+  watch: {
+    user: {
+      handler: function (user) {
+        if (!user) return
+        
+        if (user.role === 100) {
+          this.btns = {
+            entry: {
+              label: 'エントリー',
+              path: '/user/entry'
+            }
+          }
+          return
+        }
+        
+        if (user.role <= 50) {
+          this.btns = {
+            host: {
+              label: '運営',
+              path: '/host'
+            },
+            ...this.btns,
+          }
+        }
+        
+        if (user.role === 0) {
+          this.menus = {
+            admin: {
+              label: '管理',
+              path: '/admin'
+            },
+            ...this.menus,
+          }
+        }
+      },
+      deep: true
     }
   },
   created () {
     if (!this.user) return
     
-    if (this.user.role === 0) {
+    if (this.user.role <= 50) {
       this.btns = {
-        admin: {
-          label: '管理',
-          path: '/admin',
-          text: true
+        host: {
+          label: '運営',
+          path: '/host'
         },
         ...this.btns,
+      }
+    }
+    
+    if (this.user.role === 0) {
+      this.menus = {
+        admin: {
+          label: '管理',
+          path: '/admin'
+        },
+        ...this.menus,
       }
     }
   },

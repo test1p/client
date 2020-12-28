@@ -86,15 +86,27 @@
   </template>
   
   <template v-else-if="type === 'search'">
-    <input-search :label="label" :val.sync="setVal" :rules="rules" :show="show" :proxy="proxy" :path="path" :wrapper="wrapper" :item_text="item_text" :item_val="item_val" multiple />
+    <input-search-api :label="label" :val.sync="setVal" :rules="rules" :show="show" :proxy="proxy" :path="path" :wrapper="wrapper" :item_text="item_text" :item_val="item_val" multiple />
   </template>
   
   <template v-else-if="type === 'search-solo'">
-    <input-search :label="label" :val.sync="setVal" :rules="rules" :show="show" :proxy="proxy" :path="path" :wrapper="wrapper" :item_text="item_text" :item_val="item_val" />
+    <input-search-api :label="label" :val.sync="setVal" :rules="rules" :show="show" :proxy="proxy" :path="path" :wrapper="wrapper" :item_text="item_text" :item_val="item_val" />
   </template>
   
   <template v-else-if="type === 'venue'">
     <input-venue :label="label" :val.sync="setVal" :rules="rules" :show="show" />
+  </template>
+  
+  <template v-else-if="type === 'bank'">
+    <input-bank :label="label" :val.sync="setVal" :rules="rules" :show="show" />
+  </template>
+  
+  <template v-else-if="type === 'branch'">
+    <input-branch :label="label" :val.sync="setVal" :rules="rules" :show="show" />
+  </template>
+  
+  <template v-else-if="type === 'file'">
+    <input-file :label="label" :val.sync="setVal" :rules="rules" :show="show" />
   </template>
   
 </col-base>

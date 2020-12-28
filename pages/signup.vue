@@ -3,7 +3,7 @@
   
   <row-base>
     <text-title>
-      新規アカウント登録
+      新規アカウント登録(無料)
     </text-title>
   </row-base>
   
@@ -26,7 +26,7 @@
   <row-base>
     <btn-link
       :path="login.path"
-      text
+      :text="true"
       small
     >
       {{ login.label }}

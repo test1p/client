@@ -13,7 +13,7 @@
         
         <template v-if="typeof child.val === 'undefined'">
           <template v-for="grandChild in child">
-          <input-all :input="grandChild.label" :val.sync="grandChild.val" :type="grandChild.type" :rules="rules(grandChild)" :show="grandChild.show" :proxy="grandChild.proxy" :path="grandChild.path" :wrapper="grandChild.wrapper" :items="grandChild.items" :item_text="grandChild.item_text" :item_val="grandChild.item_val" :max="grandChild.max" :min="grandChild.min" />
+          <input-all :label="grandChild.label" :val.sync="grandChild.val" :type="grandChild.type" :rules="rules(grandChild)" :show="grandChild.show" :proxy="grandChild.proxy" :path="grandChild.path" :wrapper="grandChild.wrapper" :items="grandChild.items" :item_text="grandChild.item_text" :item_val="grandChild.item_val" :max="grandChild.max" :min="grandChild.min" />
           </template>
         </template>
         
@@ -25,9 +25,9 @@
       </template>
   
       <col-base class="pb-8 px-6 text-right">
-        <btn @click="add">
+        <btn-base @click="add">
           追加
-        </btn>
+        </btn-base>
       </col-base>
       
     </template>

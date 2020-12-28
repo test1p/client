@@ -1,9 +1,10 @@
 <template>
 <btn-base
   :color="color"
-  :elevation="elevation"
+  :elevation="(icon || outlined || text)? undefined : elevation"
   :disabled="disabled"
   :block="block"
+  :icon="icon"
   :outlined="outlined"
   :text="text"
   :small="small"
@@ -32,6 +33,9 @@ export default {
       default: false
     },
     block: {
+      default: false
+    },
+    icon: {
       default: false
     },
     outlined: {

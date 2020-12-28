@@ -18,11 +18,12 @@ export default {
     }
   },
   async mounted () {
-    const { user } = await this.$axios.$get(`/api${this.$route.path}/callback`, { params: this.$route.query }).catch(e => {})
+    const res = await this.$axios.$get(`/api${this.$route.path}/callback`, { params: this.$route.query }).catch(e => {})
+    const data = (res && res.data)? res.data : null
     
-    if (!user) return
+    if (!data) return
     
-    await this.$store.dispatch('auth/commitUser', user).catch(e => {})
+    await this.$store.dispatch('auth/commitUser', data).catch(e => {})
     
     if (this.user && !this.user.customer_id) return this.$router.push('/user/create')
     

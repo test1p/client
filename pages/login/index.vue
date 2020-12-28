@@ -27,7 +27,7 @@
   <row-base>
     <btn-link
       :path="btn.path"
-      text
+      :text="true"
       small
     >
       {{ btn.label }}

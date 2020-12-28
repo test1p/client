@@ -3,9 +3,11 @@
   :headers="headers"
   :items="items"
   :footer-props="footerProps"
-  :mobile-breakpoint="mobileBreakpoint"
   :no-data-text="noDataText"
   :disable-sort="!sort"
+  :mobile-breakpoint="mobileBreakpoint"
+  :hide-default-header="hideDefaultHeader"
+  :hide-default-footer="hideDefaultFooter"
 >
   <template v-slot:item.actions="{ item }">
     <slot :item="item" />
@@ -21,8 +23,7 @@ export default {
         itemsPerPageAllText: '全て',
         itemsPerPageText: '件数'
       },
-      mobileBreakpoint: 320,
-      noDataText: 'データがありません',
+      noDataText: 'なし',
     }
   },
   props: {
@@ -36,6 +37,15 @@ export default {
     },
     sort: {
       default: true,
+    },
+    mobileBreakpoint: {
+      default: 480,
+    },
+    hideDefaultHeader: {
+      default: false,
+    },
+    hideDefaultFooter: {
+      default: false,
     }
   }
 }

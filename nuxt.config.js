@@ -60,6 +60,14 @@ export default {
     '/address': {
       target: 'https://zipcloud.ibsnet.co.jp',
       pathRewrite: { '^/address': '/api/search'}
+    },
+    '/bank': {
+      target: 'https://bank.teraren.com',
+      pathRewrite: { '^/bank': '/banks'}
+    },
+    '/venue': {
+      target: 'https://opendata.resas-portal.go.jp',
+      pathRewrite: { '^/venue': '/api/v1'}
     }
   },
 

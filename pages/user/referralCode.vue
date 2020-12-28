@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       headers: [
-        { text: 'コード', value: 'code' },
+        { text: 'クーポンコード', value: 'code' },
         { text: '有効期限', value: 'expires_at' },
       ],
       item: {}

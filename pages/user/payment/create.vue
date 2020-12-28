@@ -3,7 +3,7 @@
   
   <row-base>
     <text-title>
-      決済
+      チケット追加(カード決済)
     </text-title>
   </row-base>
   
@@ -36,14 +36,15 @@ export default {
   },
   data() {
     return {
-      note: '単発決済プランです\n一回限りの決済です',
+      note: 'カード決済によるチケット追加です\n決済直後に追加されます\n一回限りの決済です',
       inputs: {
         price_id: { label: 'プラン', val: null, rules: ['required'], type: 'select-solo', items: [], item_text: 'name' },
       },
       confirm: null,
       headers: [
         { text: 'プラン', value: 'name' },
-        { text: '価格', value: 'without_tax' },
+        { text: '追加チケット', value: 'add' },
+        { text: '価格', value: 'price' },
       ],
       items: []
     }
@@ -53,12 +54,7 @@ export default {
     
     if (!data) return
     
-    const items = data.map(x => {
-      x.name = x.metadata.name
-      x.without_tax = x.unit_amount + '円(税抜)'
-      x.with_tax = Math.round(x.unit_amount * 1.1) + '円(税込)'
-      return x
-    })
+    const items = this.processingData(data)
     
     this.inputs.price_id.items = items
     this.items = items
@@ -68,10 +64,20 @@ export default {
       handler: function (val) {
         const plan = this.inputs.price_id.items.find(x => x.id === val.price_id.val)
         if (!plan) return
-        const { name, with_tax } = plan
-        this.confirm = `以下の決済を確定します\n\nプラン：${name}\n価格：${with_tax}`
+        const { name, add, price } = plan
+        this.confirm = `以下のカード決済を確定します\n\nプラン：${name}\n追加チケット：${add}\n価格：${price}`
       },
       deep: true
+    }
+  },
+  methods: {
+    processingData (data) {
+      return data.map(x => {
+        x.name = x.metadata.name
+        x.add = x.metadata.add
+        x.price = x.unit_amount + '円(税込)'
+        return x
+      })
     }
   }
 }

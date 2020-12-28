@@ -4,6 +4,10 @@ export default function ({ $axios, store, redirect }) {
   })
   
   $axios.onResponse(response => {
+    if(response.data.user) {
+      store.dispatch('auth/user')
+    }
+    
     if(response.data.message) {
       store.dispatch('commitMessage', response.data.message)
       return

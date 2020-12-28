@@ -17,6 +17,8 @@
     
   </template>
   
+  <slot />
+  
   <v-row>
     <template v-for="btn in btns">
     <btn-all
@@ -45,16 +47,7 @@ export default {
       
       if (!btn || !btn.type) return
       
-      if (btn.type === 'delete' && btn.path) {
-        const data = await this.$axios.$delete(`/api${btn.path}`).catch(e => {})
-        
-        if(!data) return
-        
-        if (this.$route.params) return this.$router.go(-1)
-        
-        window.location.reload()
-      }
-      else if (btn.type === 'post' && btn.path) {
+      if (btn.type === 'post' && btn.path) {
         const data = await this.$axios.$post(`/api${btn.path}`).catch(e => {})
       }
     },

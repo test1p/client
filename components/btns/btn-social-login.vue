@@ -2,7 +2,7 @@
 <v-row no-gutters>
   <template v-for="provider in providers">
   <v-col cols="12" class="pa-4">
-    <btn-base block @click="socialLogin(provider)">
+    <btn-base :color="provider.color" block @click="socialLogin(provider)" style="color:white;">
       <v-icon left>
         {{ provider.icon }}
       </v-icon>
@@ -18,9 +18,9 @@ export default {
   data() {
     return {
       providers: [
-        { name: 'Google', icon: 'mdi-google', path: 'google' },
-        { name: 'Facebook', icon: 'mdi-facebook', path: 'facebook' },
-        { name: 'Twitter', icon: 'mdi-twitter', path: 'twitter' }
+        { name: 'Google', icon: 'mdi-google', path: 'google', color: '#dd4b39' },
+        { name: 'Facebook', icon: 'mdi-facebook', path: 'facebook', color: '#315096' },
+        { name: 'Twitter', icon: 'mdi-twitter', path: 'twitter', color: '#55acee' }
       ]
     }
   },

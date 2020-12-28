@@ -1,10 +1,11 @@
 <template>
 <v-btn
   :color="color"
-  :elevation="elevation"
+  :elevation="(icon || outlined || text)? undefined : elevation"
   :loading="loading"
   :disabled="disabled"
   :block="block"
+  :icon="icon"
   :outlined="outlined"
   :text="text"
   :small="small"
@@ -27,7 +28,7 @@ export default {
       default: undefined
     },
     elevation: {
-      default: undefined
+      default: 1
     },
     loading: {
       default: false
@@ -36,6 +37,9 @@ export default {
       default: false
     },
     block: {
+      default: false
+    },
+    icon: {
       default: false
     },
     outlined: {

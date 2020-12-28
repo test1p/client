@@ -13,7 +13,7 @@
         <v-row>
           
           <template v-for="btn in btns">
-          <btn-all v-if="processingBtn(btn, table.item)" :btn="processingBtn(btn, table.item)" :type="btn.type" @click="click(table.item)" class="px-1">
+          <btn-all v-if="editBtn(btn, table.item)" :btn="editBtn(btn, table.item)" :type="btn.type" @click="click(table.item)" class="px-1">
             {{ btn.label }}
           </btn-all>
           </template>
@@ -51,7 +51,7 @@ export default {
         delete: {
           label: '取消',
           type: 'delete',
-          color: 'error',
+          path: `${this.$route.path}/_id`,
           outlined: true,
           small: true
         }
@@ -65,7 +65,7 @@ export default {
     
     if (!data) return
     
-    this.items = this.processingData(data)
+    this.items = this.editData(data)
   },
   methods: {
     async click (item) {
@@ -79,7 +79,7 @@ export default {
       this.items = this.processingData(data)
       this.loading = false
     },
-    processingData (data) {
+    editData (data) {
       return data.map(x => {
         x.created = this.$dayjs.unix(x.created).format('YYYY年MM月DD日')
         x.amount = x.amount_due + '円'
@@ -98,12 +98,8 @@ export default {
         return x
       })
     },
-    processingBtn (btn, item) {
-      if (btn.type && btn.type === 'delete') {
-        if (!item.status || item.status !== '手続中') return
-        return btn
-      }
-      if (!btn.path || !item.id) return null
+    editBtn (btn, item) {
+      if (!btn.path || !item.id) return btn
       return {
         ...btn,
         path: btn.path.replace('/_id', `/${item.id}`)
