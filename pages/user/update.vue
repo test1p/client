@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       inputs: {
-        name: { label: '氏名', val: null, rules: ['required'], type: 'name' },
+        name: { label: '氏名(本名)', val: null, rules: ['required'], type: 'name' },
         furigana: { label: 'ふりがな', val: null, rules: ['required'], type: 'furigana' },
         sex: { label: '性別', val: null, rules: ['required'], type: 'select', items:['男', '女'] },
         postcode: { label: '郵便番号', val: null, rules: ['required', 'digits:7'], type: 'integer' },

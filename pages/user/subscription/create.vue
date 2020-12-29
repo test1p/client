@@ -81,7 +81,7 @@ export default {
         const plan = this.inputs.price_id.items.find(x => x.id === val.price_id.val)
         if (!plan) return
         const { name, add, price } = plan
-        this.confirm = `以下のプランを登録します\n本日より毎月自動決済されます\n\nプラン：${name}\n追加チケット：${add}\n価格：${price}`
+        this.confirm = `以下の申込とプラン登録を確定します\n本日より毎月自動決済されます\n\nプラン：${name}\n追加チケット：${add}\n価格：${price}`
       },
       deep: true
     }

@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       inputs: {
-        name: { label: '氏名', val: null, rules: ['required'], type: 'name' },
+        name: { label: '氏名(本名)', val: null, rules: ['required'], type: 'name' },
         furigana: { label: 'ふりがな', val: null, rules: ['required'], type: 'furigana' },
         birth_date: { label: '生年月日', val: null, rules: ['required'], type: 'date-birth' },
         sex: { label: '性別', val: null, rules: ['required'], type: 'select-solo', items:['男', '女'] },
