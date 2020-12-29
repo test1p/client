@@ -3,7 +3,7 @@
   
   <row-base>
     <text-title>
-      エントリー一覧
+      エントリー履歴
     </text-title>
   </row-base>
   

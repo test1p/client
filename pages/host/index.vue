@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  middleware: 'isHost',
   data() {
     return {
       items: [

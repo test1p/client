@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  middleware: 'isHost',
   async asyncData ({ app, route }) {
     const { data } = await app.$axios.$get(`/api${route.path}`)
     return { data }

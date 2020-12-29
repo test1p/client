@@ -4,7 +4,7 @@
     <v-row>
       
       <btn-link :path="table.item.url" class="px-1" :icon="true">
-        <v-icon>mdi-download</v-icon>
+        <v-icon>mdi-open-in-new</v-icon>
       </btn-link>
       
       <btn-link :path="`${path}/file/${table.item.id}/update`" class="mx-1" :outlined="true">

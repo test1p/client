@@ -23,6 +23,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  middleware: 'isHost',
   data() {
     return {
       inputs: {
