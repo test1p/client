@@ -52,7 +52,7 @@ export default {
       ],
       item: {},
       btns: [
-        { label: 'エントリー', path: `${this.$route.path}/entry`},
+        { label: '申込', path: `${this.$route.path}/entry`},
         { label: 'エントリーリスト', path: `${this.$route.path}/entrylist`}
       ],
       event: {}
@@ -71,7 +71,7 @@ export default {
     
     if (this.item.entry_ended_at && this.$dayjs() > this.$dayjs(this.item.entry_ended_at)) {
       this.btns = [
-        { label: 'エントリー(〆切済)', disabled: true },
+        { label: '申込〆切済', disabled: true },
         { label: 'エントリーリスト', path: `${this.$route.path}/entrylist`}
       ]
       return
@@ -79,14 +79,14 @@ export default {
     
     if (this.item.available !== undefined && this.item.available === 0) {
       this.btns = [
-        { label: 'エントリー(定員)', disabled: true },
+        { label: '申込定員到達', disabled: true },
         { label: 'エントリーリスト', path: `${this.$route.path}/entrylist`}
       ]
     }
     
     if (this.user && this.user.entries.includes(this.item.id)) {
       this.btns = [
-        { label: 'エントリー(申込済)', disabled: true },
+        { label: '申込済', disabled: true },
         { label: 'エントリーリスト', path: `${this.$route.path}/entrylist`}
       ]
     }
