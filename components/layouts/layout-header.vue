@@ -10,7 +10,7 @@
     <btn-base
       class="px-0"
       aria-label="to-top"
-      @click="$router.push('/')"
+      @click="home()"
       :text="true"
     >
       
@@ -83,6 +83,9 @@ export default {
       else {
         this.$router.push(menu.path)
       }
+    },
+    home () {
+      this.$router.push('/')
     }
   },
   props: {

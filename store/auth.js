@@ -33,9 +33,9 @@ export const actions = {
     await this.$axios.$get("/api/logout").catch(e => {})
     commit('setUser', null)
     
-    if (window.$nuxt.$route.path === '/') return window.location.reload()
+    if (window.$nuxt.$route.path === '/') return window.$nuxt.$router.go()
     
-    this.$router.push('/')
+    window.$nuxt.$router.push('/')
   },
   
   async user ({ commit }) {
