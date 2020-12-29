@@ -44,7 +44,7 @@ export default {
     if (!store.getters['auth/isAuthenticated']) return 'visitor'
   },
   async asyncData ({ app, route }) {
-    const { data } = await app.$axios.$get(`/api${route.path}`)
+    const { data } = await app.$axios.$get(`/api/home`)
     return { data }
   },
   data() {
